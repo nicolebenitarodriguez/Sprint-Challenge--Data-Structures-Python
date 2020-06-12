@@ -39,4 +39,23 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        #pass
+        if node == None:
+            return
+        if node.next_node == None:
+            self.head = node
+            return
+        self.reverse_list(node.next_node, node)
+        node.next_node.set_next(node)
+'''
+the base case is when reach the end of the LL
+test if node is at end, then the node becomes head. 
+
+self in the case is the original LL being called in test file
+self.list.reverse_list(node=self.list.head, None)
+first time it is called above it is given the list head as the first node
+so basically starting at the head if statement will pass else will run
+
+the else state will take the node of the next value and the current node
+then it will set the next node , next node value to the current node (reversing order) the last step is reversing the head in base case 
+'''
